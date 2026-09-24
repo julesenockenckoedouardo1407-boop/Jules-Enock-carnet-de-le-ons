@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#176b3a">
+<meta name="description" content="Jules Enock – Carnet de leçons">
+<link rel="manifest" href="manifest.json">
+<link rel="stylesheet" href="style.css">
+<title>Jules Enock – Carnet de leçons</title>
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <h1>Jules Enock</h1>
+    <p>Carnet de leçons</p>
+  </div>
+  <button id="installBtn" class="secondary hidden">Installer</button>
+</header>
+
+<main class="container">
+  <section class="card">
+    <div class="tabs">
+      <button class="tab active" data-view="carnet">📚 Carnet</button>
+      <button class="tab" data-view="redaction">📝 Rédiger</button>
+      <button class="tab" data-view="apropos">ℹ️ À propos</button>
+    </div>
+  </section>
+
+  <section id="carnetView" class="view">
+    <div class="card">
+      <div class="section-head">
+        <h2>Ajouter une leçon ou un devoir</h2>
+        <button id="resetForm" class="secondary">Effacer</button>
+      </div>
+      <form id="lessonForm">
+        <input type="hidden" id="itemId">
+        <label>Titre de la leçon / du devoir
+          <input id="title" required placeholder="Ex. Les fractions">
+        </label>
+        <div class="grid2">
+          <label>Type
+            <select id="type"><option>Leçon</option><option>Devoir</option></select>
+          </label>
+          <label>Matière
+            <input id="subject" placeholder="Ex. Mathématiques">
+          </label>
+        </div>
+        <div class="grid2">
+          <label>Livre
+            <input id="book" placeholder="Nom du livre">
+          </label>
+          <label>Page
+            <input id="page" placeholder="Ex. 42">
+          </label>
+        </div>
+        <div class="grid2">
+          <label>Date à remettre
+            <input id="dueDate" type="date">
+          </label>
+          <label>Heure du cours
+            <input id="courseTime" type="time">
+          </label>
+        </div>
+        <label>Professeur
+          <input id="teacher" placeholder="Nom du professeur">
+        </label>
+        <label>Notes du professeur / indication
+          <textarea id="teacherNotes" rows="3" placeholder="Si la leçon ou le devoir se trouve dans les notes du professeur, écrivez-le ici."></textarea>
+        </label>
+        <div class="form-actions">
+          <button class="primary" type="submit" id="saveBtn">Enregistrer</button>
+          <button class="secondary" type="button" id="cancelEdit">Annuler la modification</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <div class="section-head">
+        <h2>Mes leçons et devoirs</h2>
+        <input id="search" class="search" placeholder="🔎 Rechercher...">
+      </div>
+      <div id="items" class="items"></div>
+      <p id="empty" class="empty">Aucune leçon ou aucun devoir enregistré.</p>
+    </div>
+  </section>
+
+  <section id="redactionView" class="view hidden">
+    <div class="card">
+      <div class="section-head">
+        <h2>Rédiger un devoir</h2>
+        <div class="form-actions">
+          <button id="printBtn" class="secondary">🖨️ Imprimer / PDF</button>
+          <button id="saveDraftBtn" class="primary">💾 Enregistrer</button>
+        </div>
+      </div>
+      <div class="sheet-tools">
+        <label>Devoir
+          <select id="draftSelect"></select>
+        </label>
+      </div>
+      <div id="printArea" class="paper">
+        <div class="paper-header">
+          <input id="schoolName" value="Jules Enock – Carnet de leçons" aria-label="Entête">
+          <input id="studentName" placeholder="Nom et prénom de l'élève">
+          <input id="draftTitle" placeholder="Titre du devoir">
+          <input id="draftDate" type="date">
+        </div>
+        <textarea id="draftText" class="graph-paper" placeholder="Rédigez votre devoir ici..."></textarea>
+      </div>
+    </div>
+  </section>
+
+  <section id="aproposView" class="view hidden">
+    <div class="card about">
+      <h2>À propos</h2>
+      <p><strong>Jules Enock – Carnet de leçons</strong></p>
+      <p>Carnet de leçons créé par <strong>Maître Jules Enock</strong>.</p>
+      <p>Contact : <a href="tel:+50940409680">+509 40409680</a></p>
+      <hr>
+      <p>Cette application permet à l'élève de conserver ses leçons et devoirs, suivre leur état, noter les résultats obtenus et rédiger ses devoirs sur une feuille quadrillée.</p>
+    </div>
+  </section>
+</main>
+
+<footer>Jules Enock – Carnet de leçons</footer>
+<script src="app.js"></script>
+</body>
+</html>
